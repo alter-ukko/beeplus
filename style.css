@@ -1,0 +1,335 @@
+:root {
+  --bkg-color: white;
+  --txt-color: black;
+  --title-color: darkorange;
+  --puzzle-date-color: #505050;
+  --sep-color: lightgray;
+  --btn-bkg-color: darkgoldenrod;
+  --btn-txt-color: white;
+  --ans-color: #505050;
+  --ans-done-color: blue;
+  --tile-bkg-color: lightgray;
+  --tile-txt-color: black;
+  --tile-border-color: #c0c0c0;
+  --msg-txt-color: darkred;
+  --score-txt-color: blue;
+  --icon-small-color: darkgray;
+  --grid-nav-txt-color: #202020;
+  --grid-nav-bkg-color: #f0f0f0;
+  --grid-nav-border-color: #e0e0e0;
+  --base-font-size: 14pt;
+  --title-font-size: 32pt;
+  --score-font-size: 14pt;
+  --ans-font-size: 28pt;
+  --tile-font-size: 42pt;
+  --msg-font-size: 16pt;
+  --btn-font-size: 14pt;
+  --icon-font-size: 18pt;
+  --icon-font-size-small: 14pt;
+  --popup-font-size: 12pt;
+  --unfinished-opacity: 30%;
+  --finished-opacity: 100%;
+}
+
+[data-theme="dark"] {
+  --bkg-color: black;
+  --txt-color: white;
+  --title-color: darkorange;
+  --puzzle-date-color: #a0a0a0;
+  --sep-color: #404040;
+  --btn-bkg-color: darkgoldenrod;
+  --btn-txt-color: white;
+  --ans-color: lightgray;
+  --ans-done-color: #8080FF;
+  --tile-bkg-color: #202020;
+  --tile-txt-color: white;
+  --tile-border-color: #404040;
+  --msg-txt-color: red;
+  --score-txt-color: #8080FF;
+  --icon-small-color: #8080FF;
+  --grid-nav-txt-color: #b0b0b0;
+  --grid-nav-bkg-color: #101010;
+  --grid-nav-border-color: #202020;
+}
+
+* {
+  touch-action: manipulation;
+}
+
+body {
+  font-family: Barlow, Arial, Helvetica, sans-serif;
+  font-size: var(--base-font-size);
+  color: var(--txt-color);
+  background-color: var(--bkg-color);
+}
+
+button {
+  font-size: var(--btn-font-size);
+  padding: 0.75em;
+  color: var(--btn-txt-color);
+  background-color: var(--btn-bkg-color);
+  border: none;
+  border-radius: 0.5em;
+  cursor: pointer;
+}
+
+h2 {
+  margin-bottom: 0.25em;
+}
+
+.game {
+  z-index: 1;
+}
+
+.title {
+  font-size: var(--title-font-size);
+  width: 7.875em;
+  margin: 0 auto;    
+  text-align: center;
+  color: var(--title-color);
+  height: 1.25em;
+  border-bottom: 1px solid var(--sep-color);
+}
+
+.puzzle-date {
+  color: var(--puzzle-date-color);
+}
+
+.top-info {
+  font-size: var(--score-font-size);
+  width: 18em;
+  margin: 0 auto;    
+  text-align: center;
+  padding-bottom: 0.25em;
+  border-bottom: 1px solid var(--sep-color);  
+}
+
+.stage-text {
+  color: var(--score-txt-color);
+}
+
+.word-score {
+  color: var(--score-txt-color);
+  margin-right: 1em;
+}
+
+.total-score {
+  color: var(--score-txt-color);
+}
+
+.answer-text {
+  font-size: var(--ans-font-size);
+  margin: 0 auto;    
+  text-align: center;
+  color: var(--ans-color);
+  height: 1.25em;  
+}
+
+.top-container{
+  font-size: var(--tile-font-size);
+  height: 3.8em;
+}
+
+.grid-nav-container {
+  margin: 0 auto;
+  width: 6em;
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  justify-items: center;
+  align-items: center;
+  border-top: 1px solid var(--sep-color);
+  border-bottom: 1px solid var(--sep-color);
+}
+
+.grid-nav {
+  margin: 0;
+  padding: 0;
+  flex: 1;
+}
+
+button.grid-nav-btn {
+  margin: 0;
+  padding: 0.75em;
+  width: 3em;
+  color: var(--grid-nav-txt-color);
+  background-color: var(--grid-nav-bkg-color);
+  border: 1px solid var(--grid-nav-border-color);
+  border-radius: 0.5em;
+  cursor: pointer;
+  justify-content: center;
+}
+
+.grid-container {
+  flex: 4;
+  display: inline;
+  position: relative;
+  width: 4em;
+  height: 3.7em;
+  overflow: hidden;
+  margin: 0 auto;
+  justify-content: center;
+  align-content: center;
+  justify-items: center;
+  align-items: center;
+  padding: 0;
+}
+
+.tile {
+  border: 1px var(--tile-border-color) solid;
+  background-color: var(--tile-bkg-color);
+  color: var(--tile-txt-color);
+  width: 1.1em;
+  height: 1.1em;
+  text-align: center;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  line-height: 1em;  
+  position: absolute;
+  cursor: pointer;
+}
+
+.grid-tile-0 {
+  top: 0.1em;
+  left: 0.1em;
+}
+
+.grid-tile-1 {
+  top: 0.1em;
+  left: 1.3em;
+}
+
+.grid-tile-2 {
+  top: 0.1em;
+  left: 2.5em;
+}
+
+.grid-tile-3 {
+  top: 1.3em;
+  left: 0.1em;
+}
+
+.grid-tile-4 {
+  top: 0,1em;
+  left: 10em;
+}
+
+.grid-tile-5 {
+  top: 0.1em;
+  left: 10em;
+}
+
+.grid-tile-6 {
+  top: 0.1em;
+  left: 10em;
+}
+
+.nav-buttons {
+  width: max-content;
+  margin: 0 auto;
+  margin-bottom: 0.5em;
+  justify-content: center;
+}
+
+.stage-bees {
+  font-size: var(--icon-font-size);
+  width: 14em;
+  margin: 0 auto;
+  text-align: center;
+  padding-top: 0.4em;
+  padding-bottom: 0.25em;
+  border-top: 1px solid var(--sep-color);
+  border-bottom: 1px solid var(--sep-color);
+}
+
+.stage-bee-0 {
+  opacity: var(--unfinished-opacity);
+}
+
+.stage-bee-1 {
+  opacity: var(--unfinished-opacity);
+}
+
+.stage-bee-2 {
+  opacity: var(--unfinished-opacity);
+}
+
+.stage-bee-3 {
+  opacity: var(--unfinished-opacity);
+}
+
+.stage-bee-4 {
+  opacity: var(--unfinished-opacity);
+}
+
+.stage-bee-5 {
+  opacity: var(--unfinished-opacity);
+}
+
+.stage-bee-6 {
+  opacity: var(--unfinished-opacity);
+}
+
+.message-text {
+  font-size: var(--msg-font-size);
+  margin: 0 auto;    
+  text-align: center;
+  color: var(--msg-txt-color);
+  height: 1em;
+  margin-bottom: 0.5em;
+}
+
+.share-message-text {
+  font-size: var(--msg-font-size);
+  margin: 0 auto;    
+  text-align: center;
+  color: var(--msg-txt-color);
+  height: 1em;
+  margin-bottom: 0.5em;
+}
+
+.popup {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  background-color: var(--bkg-color);
+  display: none;
+  z-index: 2;
+  font-size: var(--popup-font-size);
+}
+
+.dialog-container {
+  width: 20em;
+  text-align: center;
+  margin: 0 auto;
+}
+
+.plain-list {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+  text-align: left;
+}
+
+.material-symbols-outlined {
+  font-family: 'Material Symbols Outlined';
+  font-weight: normal;
+  font-style: normal;
+  font-size: var(--icon-font-size);
+  display: inline-block;
+  line-height: 1em;
+  text-transform: none;
+  letter-spacing: normal;
+  word-wrap: normal;
+  white-space: nowrap;
+  direction: ltr;
+}
+
+.icon-small {
+  font-size: var(--icon-font-size-small);
+  color: var(--score-txt-color);
+}

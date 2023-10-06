@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <title>bee+</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Barlow&display=swap" rel="stylesheet"> 
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+  </head>
+  <body>
+    <div class="game">
+      <div class="title">
+        <span>bee+</span>
+        <a href="#" onclick="helpClicked()" tabindex="-1"><span class="material-symbols-outlined icon-small">&#xe887;</span></a>
+        <a href="#" onclick="settingsClicked()" tabindex="-1"><span class="material-symbols-outlined icon-small">&#xe8b8;</span></a>
+      </div>
+      <div class="top-info"><span class="puzzle-date"></span></div>
+      <div class="top-info">
+        <span>stage&nbsp;</span>
+        <span class="stage-text">1/7</span>
+      </div>
+      <div class="top-info">
+        <span>word:&nbsp;</span>
+        <span class="word-score">0/0</span>
+        <span>total:&nbsp;</span>
+        <span class="total-score">0/0</span>
+      </div>
+      <div class="answer-text"></div>
+      <div class="top-container">
+        <div class="grid-nav-container">
+          <div class="grid-nav"><button class="grid-nav-btn" onclick="prevClicked()" tabindex="-1"><span class="material-symbols-outlined">&#xe5c4;</span></button></div>
+          <div class="grid-container">
+            <div class="tile grid-tile-0" onclick="tileClicked(0)"></div>
+            <div class="tile grid-tile-1" onclick="tileClicked(1)"></div>
+            <div class="tile grid-tile-2" onclick="tileClicked(2)"></div>
+            <div class="tile grid-tile-3" onclick="tileClicked(3)"></div>
+            <div class="tile grid-tile-4" onclick="tileClicked(4)"></div>
+            <div class="tile grid-tile-5" onclick="tileClicked(5)"></div>
+            <div class="tile grid-tile-6" onclick="tileClicked(6)"></div>
+          </div>
+          <div class="grid-nav"><button class="grid-nav-btn" onclick="nextClicked()" tabindex="-1"><span class="material-symbols-outlined">&#xe5c8;</span></button></div>
+        </div>
+      </div>
+      <div class="message-text"></div>
+      <div>
+        <div class="nav-buttons">
+          <button onclick="deleteClicked()" tabindex="-1"><span class="material-symbols-outlined">&#xe14a;</span></button>
+          <button onclick="clearClicked()" tabindex="-1"><span class="material-symbols-outlined">&#xe872;</span></button>
+          <button onclick="enterClicked()" tabindex="-1"><span class="material-symbols-outlined">&#xe31b;</span></button>
+        </div>
+        <div class="nav-buttons">
+          <button onclick="shuffleClicked()" tabindex="-1"><span class="material-symbols-outlined">&#xe043;</span></button>
+          <button onclick="finishClicked()" tabindex="-1"><span class="material-symbols-outlined">&#xe876;</span></button>
+        </div>
+      </div>
+      <div class="stage-bees">
+        <span class="stage-bee-0">&#x1f41d;</span>
+        <span class="stage-bee-1">&#x1f41d;</span>
+        <span class="stage-bee-2">&#x1f41d;</span>
+        <span class="stage-bee-3">&#x1f41d;</span>
+        <span class="stage-bee-4">&#x1f41d;</span>
+        <span class="stage-bee-5">&#x1f41d;</span>
+        <span class="stage-bee-6">&#x1f41d;</span>
+      </div>
+  </div>
+  
+  <div id="complete" class="popup">
+    <div class="dialog-container">
+      <h2>You completed bee+</h2>
+      <p>&#x1f41d;<span class="complete-date-text">0000-00-00</span>&#x1f41d;</p> 
+      <p>Your score was <span class="complete-total-text">0/0</span></p>
+      <div class="share-message-text"></div>
+      <button onclick="shareClicked()">share</button>
+      <button onclick="completeCloseClicked()">keep playing</button>
+    </div>
+  </div>
+  <div id="help" class="popup">
+    <div class="dialog-container">
+      <h2>How to play bee+</h2>
+      <p>In each of seven stages, make the longest word possible using <b>all</b> of the available letters.</p>
+      <p>The game starts with four letters. In each stage, one letter is added, until you have seven letters. After that, one letter is <i>removed</i> in each stage, until you're back to four letters.</p>
+      <p>You don't need to complete the stages in order. If you get stuck, you can go forward or back. Once you've finished all the stages, click the check mark to complete the puzzle.</p>
+      <h2>Buttons</h2>
+      <ul class="plain-list">
+        <li><span class="material-symbols-outlined">&#xe5c4;</span> - go to the previous stage</li>
+        <li><span class="material-symbols-outlined">&#xe043;</span> - shuffle the letters</li>
+        <li><span class="material-symbols-outlined">&#xe5c8;</span> - go to the next stage</li>
+        <li><span class="material-symbols-outlined">&#xe14a;</span> - backspace</li>
+        <li><span class="material-symbols-outlined">&#xe872;</span> - clear the word you've entered</li>
+        <li><span class="material-symbols-outlined">&#xe31b;</span> - complete the word you're entering</li>
+        <li><span class="material-symbols-outlined">&#xe876;</span> - complete the puzzle (all stages)</li>
+        <li><span class="material-symbols-outlined">&#xe887;</span> - open this screen</li>
+        <li><span class="material-symbols-outlined">&#xe8b8;</span> - settings</li>
+      </ul>
+      <button onclick="helpCloseClicked()">close</button>
+    </div>
+  </div>
+  <div id="settings" class="popup">
+    <div class="dialog-container">
+      <h2>bee+ settings</h2>
+      <div>
+        <input type="checkbox" id="theme-checkbox" name="theme" onchange="darkModeCheckboxChanged()" />
+        <label for="theme">dark mode</label>
+      </div>
+      <div>
+        <p>&nbsp;</p>
+      </div>
+      <button onclick="settingsCloseClicked()">close</button>
+    </div>
+  </div>
+  <script src="index.js"></script>
+  </body>
+</html>
