@@ -1,6 +1,6 @@
 ## bee+
 
-Bee+ is a word game, similar to the New York Times' [Spelling Bee](https://www.nytimes.com/puzzles/spelling-bee). Instead of a single tableau of letters, there are seven stages.
+Bee+ is a word game, similar to the New York Times' [Spelling Bee](https://www.nytimes.com/puzzles/spelling-bee). Instead of a single tableau of letters, there are seven stages. A real version of the game is hosted at [beepl.us](https://beepl.us).
 
 The goal is to make the longest pangram possible in each stage. The game gives you four letters to start with, then adds a letter in each successive stage until there are seven letters. After that, the game _removes_ one letter in each successive stage until you're back to four letters.
 
